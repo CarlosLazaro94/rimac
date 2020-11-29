@@ -6,7 +6,6 @@
 
 ## Table of contents
 
-Use for instance <https://github.com/ekalinin/github-markdown-toc>:
 
 > * [Title / Repository Name](#API SWAPI STAR WARS)
 >   * [Installation](#Installation)
