@@ -1,0 +1,46 @@
+service: star-wars-endpoints
+
+plugins : 
+    - serverless-offline
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  # vpc:
+  #   securityGroupIds:
+  #     - sg-3e1c9d0b
+  #   subnetIds:
+  #     - subnet-6922a148
+  #     - subnet-467fb777  
+
+functions:
+  getPersonaSWAPI:
+    handler: handler.getPersonaSWAPI
+    events:
+      - http:
+          path: api/people/{id}
+          method: get
+          cors: true
+  getEspeciesSWAPI:
+    handler: handler.getEspeciesSWAPI
+    events:
+      - http:
+          path: api/especies/{id}
+          method: get
+          cors: true
+  postPersonaDB:
+    handler: crud/postPersona.create
+    events:
+      - http:
+          path: api/people/
+          method: post
+          cors: true
+  getPersonaDB:
+    handler: crud/getPersonaAll.findAll
+    events:
+      - http:
+          path: api/people
+          method: get
+          cors: true
